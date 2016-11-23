@@ -59,8 +59,33 @@ class SiteController extends Controller
      * @return string
      */
     public function actionIndex()
-    {
-        return $this->render('index');
+    {   
+		$session = Yii::$app->session;
+		$username = $session['username'];
+		if(isset($_SESSION['username']))
+		{
+			return $this->render('mainpage');
+		}
+		else
+		{
+			return $this->render('index');
+		}
+    }
+	
+	 public function actionMainpage()
+    {   
+		$session = Yii::$app->session;
+		$username = $session['username'] ;
+		//print_r($username); die;
+		if (isset($_SESSION['username']))
+		{ 
+			return $this->render('mainpage');
+		}
+		else
+		{
+			return $this->render('index');
+		}
+		
     }
 
     /**
@@ -75,8 +100,11 @@ class SiteController extends Controller
         }
 
         $model = new LoginForm();
+		$session = Yii::$app->session;
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            Yii::$app->response->redirect(array('site/index'));
+		$logindetails = Yii::$app->request->post('LoginForm');
+		$session['username'] =  $logindetails['username'];
+        $this->redirect(array('site/mainpage'));
         }
         return $this->render('login', [
             'model' => $model,
@@ -90,9 +118,11 @@ class SiteController extends Controller
      */
     public function actionLogout()
     {
+		unset($_SESSION['username']);
         Yii::$app->user->logout();
+		
 
-        Yii::$app->response->redirect(array('site/contact'));
+        Yii::$app->response->redirect(array('site/index'));
     }
 
     /**

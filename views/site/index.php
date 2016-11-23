@@ -8,9 +8,11 @@ $this->title = 'Chinmaya Model School';
 
     <div class="jumbotron">
 
-        <p><a class="btn btn-lg btn-success" href="http://localhost/school/web/index.php?r=student%2Findex">Students list</a></p>
-		<p><a class="btn btn-lg btn-success" href="http://localhost/school/web/index.php?r=mark%2Findex">Marks Entry</a></p>
+        <p><a class="btn btn-lg btn-success" href="http://localhost/school/web/index.php?r=site%2Flogin">Login</a></p>
+		
     </div>
 
     
 </div>
+
+

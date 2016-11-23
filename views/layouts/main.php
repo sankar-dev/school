@@ -28,7 +28,7 @@ AppAsset::register($this);
     <?php
     NavBar::begin([
         'brandLabel' => 'Chinmaya Model School',
-        'brandUrl' => Yii::$app->homeUrl,
+        'brandUrl' => (array('site/mainpage')),
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
@@ -36,7 +36,6 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (

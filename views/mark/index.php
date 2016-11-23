@@ -26,7 +26,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'english',
             'maths',
             'science',
-			'total'
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

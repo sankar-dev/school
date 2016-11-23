@@ -4,7 +4,7 @@
 
 $this->title = 'Chinmaya Model School';
 ?>
-<div class="site-index">
+<div class="site-main">
 
     <div class="jumbotron">
 
